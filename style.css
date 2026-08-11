@@ -1,0 +1,1316 @@
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #09090f;
+    color: #fff;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   ESCENAS / TRANSICIONES
+   ========================================================= */
+
+.scene {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 24px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+
+    overflow: auto;
+}
+
+.scene.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scene.exit {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+
+/* =========================================================
+   FONDOS DE LAS ESCENAS
+   ========================================================= */
+
+.dark {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #20202d 0,
+            #0b0b12 55%,
+            #050507 100%
+        );
+}
+
+.warm {
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            #3a2730,
+            #17131a 50%,
+            #0b0b10
+        );
+}
+
+.blue {
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #1d3651,
+            #0c121c 60%,
+            #07090d
+        );
+}
+
+.night {
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            #20223c,
+            #090b16 60%,
+            #05060a
+        );
+}
+
+.soft {
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #3c2d3e,
+            #15121a 60%,
+            #09090e
+        );
+}
+
+.green {
+    background:
+        radial-gradient(
+            circle at 70% 25%,
+            #263b34,
+            #0e1715 60%,
+            #080b0a
+        );
+}
+
+.music-scene {
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #39282d,
+            #121016 60%,
+            #08080c
+        );
+}
+
+.memories {
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #302a23,
+            #12110f 60%,
+            #080807
+        );
+}
+
+.final-scene {
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #38263a,
+            #110d15 65%,
+            #070609
+        );
+}
+
+.video-scene,
+.end-scene,
+.blackout-scene {
+    background: #050507;
+}
+
+
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
+
+.content {
+    width: min(1000px, 100%);
+    position: relative;
+    z-index: 2;
+}
+
+.centered {
+    text-align: center;
+    margin: auto;
+}
+
+.content h2 {
+    font-size: clamp(2.1rem, 5vw, 4.8rem);
+    line-height: 1.02;
+    margin: 10px 0 26px;
+    letter-spacing: -0.04em;
+}
+
+.content p {
+    font-size: clamp(1rem, 1.7vw, 1.18rem);
+    line-height: 1.75;
+    color: #d9d5dc;
+}
+
+.wide {
+    max-width: 760px;
+    margin: 16px auto;
+}
+
+.eyebrow {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #aaa1ad !important;
+    font-weight: 700;
+}
+
+.content span,
+.hero-card h1 span {
+    color: #f3a8c9;
+}
+
+.accent {
+    color: #f3a8c9;
+}
+
+.big-line {
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    margin: 35px 0;
+}
+
+.quote {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-style: italic;
+
+    max-width: 760px;
+    margin: 34px auto;
+    padding: 22px;
+
+    border-left: 2px solid #f3a8c9;
+
+    color: #f3e8ee;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.primary {
+    border: 0;
+    border-radius: 999px;
+
+    padding: 13px 22px;
+
+    background: #fff;
+    color: #111;
+
+    font-weight: 800;
+    cursor: pointer;
+
+    font-size: 0.95rem;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+    margin-top: 18px;
+}
+
+.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px #0005;
+}
+
+.hidden {
+    display: none;
+}
+
+.icon-btn {
+    position: fixed;
+    z-index: 20;
+
+    right: 18px;
+    top: 18px;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #ffffff22;
+    border-radius: 50%;
+
+    background: #ffffff10;
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   INTRO / SPAM PSPSPS
+   ========================================================= */
+
+.spam-box {
+    text-align: center;
+    width: min(650px, 100%);
+}
+
+.spam-messages {
+    min-height: 260px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+
+    align-items: center;
+}
+
+.spam-message {
+    font-weight: 800;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+
+    animation: pop 0.35s ease;
+}
+
+.spam-message.small {
+    font-size: 1rem;
+    color: #999;
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   PORTADA
+   ========================================================= */
+
+.hero-card {
+    width: min(700px, 100%);
+    text-align: center;
+}
+
+.hero-image {
+    width: min(340px, 70vw);
+    height: 260px;
+
+    margin: 0 auto 28px;
+}
+
+.image-frame,
+.small-img,
+.album,
+.memory {
+    background: #ffffff0d;
+
+    border: 1px solid #ffffff18;
+
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.placeholder-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #777;
+
+    border-radius: 22px;
+}
+
+.hero-card h1 {
+    font-size: clamp(2.7rem, 7vw, 6rem);
+    line-height: 0.95;
+
+    letter-spacing: -0.065em;
+
+    margin: 12px 0;
+}
+
+.sub {
+    color: #aaa;
+    font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   LÍNEA DEL TIEMPO 14 → 18
+   ========================================================= */
+
+.two-col {
+    display: grid;
+
+    grid-template-columns: 1.05fr 0.95fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* Contenedor de los años */
+
+.timeline {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    width: 100%;
+}
+
+
+/* Línea vertical */
+
+.timeline-line {
+    position: absolute;
+
+    left: 31px;
+
+    top: 20px;
+    bottom: 20px;
+
+    width: 2px;
+
+    background: #ffffff22;
+}
+
+
+/* Cada año */
+
+.year-card {
+    display: grid;
+
+    grid-template-columns: 62px 1fr;
+
+    align-items: center;
+
+    gap: 15px;
+
+    position: relative;
+}
+
+
+/* Número del año */
+
+.year-card b {
+    font-size: 1.5rem;
+
+    text-align: center;
+
+    color: #fff;
+
+    z-index: 2;
+}
+
+
+/* FOTO DE CADA EDAD */
+
+.small-img {
+    height: 120px;
+
+    border-radius: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #777;
+
+    background-color: #111;
+
+    /* IMPORTANTE:
+       La foto completa se adapta al cuadro */
+    background-size: contain;
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   ESCENAS CON FOTOS GRANDES
+   ========================================================= */
+
+.photo-scene {
+    padding: 0;
+}
+
+.photo-bg,
+.split-image {
+    position: absolute;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #000b,
+            #0005 50%,
+            #0009
+        );
+}
+
+.light {
+    color: #fff;
+}
+
+.light p {
+    color: #eee;
+}
+
+
+/* =========================================================
+   ESCENA DIVIDIDA CON FOTO
+   ========================================================= */
+
+/* =========================================================
+   CAPÍTULO 6 — FOTO DE LADO + TEXTO
+   ========================================================= */
+
+.split-photo {
+    padding: 0;
+    justify-content: center;
+    align-items: stretch;
+
+    background: #0b0b10;
+}
+
+
+/* FOTO */
+
+.split-photo .split-image {
+    position: absolute;
+
+    left: 0;
+    right: auto;
+    top: 0;
+    bottom: 0;
+
+    width: 52%;
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 0 35px 35px 0;
+
+    z-index: 1;
+}
+
+
+/* Pequeño degradado solamente en el borde de la foto */
+
+.split-photo .split-image::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #0b0b10
+    );
+}
+
+
+/* TEXTO */
+
+.split-photo .content {
+    position: relative;
+
+    width: 42%;
+
+    margin-left: 55%;
+    margin-right: 4%;
+
+    z-index: 3;
+
+    padding: 40px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Texto siempre claro */
+
+.split-photo .content h2 {
+    color: #fff;
+
+    margin-bottom: 24px;
+}
+
+.split-photo .content p {
+    color: #d9d5dc;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .split-photo {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .split-photo .split-image {
+        left: 0;
+        right: 0;
+
+        top: 0;
+        bottom: auto;
+
+        width: 100%;
+        height: 52vh;
+
+        border-radius: 0;
+
+        background-position: center;
+    }
+
+    /* Degradado de la foto hacia el texto */
+
+    .split-photo .split-image::after {
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 180px;
+
+        background: linear-gradient(
+            transparent,
+            #0b0b10
+        );
+    }
+
+    .split-photo .content {
+        width: 100%;
+
+        margin: 0;
+
+        padding: 0 24px 40px;
+
+        min-height: 48vh;
+
+        justify-content: flex-end;
+
+        z-index: 3;
+    }
+
+    .split-photo .content h2 {
+        font-size: 2.3rem;
+
+        margin-bottom: 18px;
+    }
+
+    .split-photo .content p {
+        font-size: 1rem;
+
+        line-height: 1.6;
+    }
+}
+
+
+/* =========================================================
+   MIEDOS / FUTURO
+   ========================================================= */
+
+.worry-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    max-width: 650px;
+
+    margin: 30px auto;
+}
+
+.worry-grid span {
+    padding: 16px;
+
+    border: 1px solid #ffffff15;
+
+    border-radius: 14px;
+
+    background: #ffffff08;
+
+    color: #d8d4de;
+}
+
+
+/* =========================================================
+   TARJETA DE APOYO
+   ========================================================= */
+
+.support-card {
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background: #ffffff08;
+
+    border: 1px solid #ffffff15;
+
+    font-size: 1.3rem;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   PLAYLIST
+   ========================================================= */
+
+.music-card {
+    width: min(760px, 100%);
+
+    margin: 30px auto;
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 25px;
+
+    text-align: left;
+
+    align-items: center;
+
+    padding: 22px;
+
+    border: 1px solid #ffffff16;
+
+    background: #ffffff08;
+
+    border-radius: 24px;
+}
+
+.album {
+    width: 180px;
+    height: 180px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #777;
+}
+
+.music-info span {
+    font-size: 0.7rem;
+
+    letter-spacing: 0.2em;
+
+    color: #aaa;
+}
+
+.music-info h3 {
+    font-size: 2rem;
+
+    margin: 8px 0;
+}
+
+.music-info p {
+    margin: 0;
+}
+
+.link-btn {
+    display: inline-block;
+
+    text-decoration: none;
+
+    margin-top: 14px;
+}
+
+.funny {
+    max-width: 680px;
+
+    margin: 25px auto;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: #ffffff08;
+
+    border: 1px solid #ffffff12;
+
+    font-weight: 700;
+}
+
+.funny small {
+    color: #999;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   RECUERDOS
+   ========================================================= */
+
+.memory-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    max-width: 780px;
+
+    margin: 35px auto;
+}
+
+.memory {
+    height: 150px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    font-size: 2rem;
+}
+
+.memory span {
+    font-size: 0.8rem;
+
+    color: #ccc;
+}
+
+
+/* =========================================================
+   VIDEO FINAL
+   ========================================================= */
+
+.video-button {
+    border: 1px solid #ffffff33;
+
+    background: #fff;
+
+    color: #111;
+
+    border-radius: 999px;
+
+    padding: 18px 30px;
+
+    font-size: 1.1rem;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow: 0 15px 50px #0008;
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        box-shadow: 0 15px 70px #fff2;
+    }
+}
+
+.video-note {
+    color: #777 !important;
+
+    font-size: 0.8rem !important;
+}
+
+.video-wrap {
+    width: min(1000px, 100%);
+
+    text-align: center;
+}
+
+.video-wrap video {
+    width: 100%;
+
+    max-height: 75vh;
+
+    border-radius: 20px;
+
+    background: #000;
+}
+
+
+/* =========================================================
+   PANTALLAS NEGRAS (ANTES DEL VIDEO)
+   ========================================================= */
+
+.blackout {
+    max-width: 640px;
+}
+
+.blackout-text {
+    font-size: clamp(1.6rem, 4vw, 2.6rem) !important;
+    font-style: italic;
+    line-height: 1.4 !important;
+    color: #f2eef4 !important;
+    letter-spacing: -0.01em;
+}
+
+.blackout-text.small {
+    font-size: clamp(1.1rem, 2.6vw, 1.5rem) !important;
+    color: #b7b0bb !important;
+    margin-top: 4px !important;
+}
+
+.blackout-scene .primary {
+    margin-top: 40px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #ffffff33;
+}
+
+
+/* =========================================================
+   FINAL
+   ========================================================= */
+
+.end-symbol {
+    font-size: 3rem;
+
+    margin-bottom: 20px;
+}
+
+.signature {
+    font-size: 1.3rem !important;
+
+    margin-top: 35px;
+}
+
+.psps {
+    margin-top: 60px !important;
+
+    color: #555 !important;
+
+    font-size: 0.9rem !important;
+}
+
+
+/* =========================================================
+   BARRA DE PROGRESO
+   ========================================================= */
+
+#progress {
+    position: fixed;
+
+    z-index: 25;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background: #ffffff0a;
+}
+
+#progress span {
+    display: block;
+
+    height: 100%;
+
+    width: 0;
+
+    background: #fff;
+
+    transition: width 0.6s ease;
+}
+
+
+/* =========================================================
+   EFECTOS CINEMATOGRÁFICOS
+   ========================================================= */
+
+/* Zoom lento tipo documental en las fotos grandes */
+
+@keyframes slowZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+.hero-image,
+.photo-bg,
+.split-image,
+.memory,
+.album {
+    animation: slowZoom 16s linear infinite alternate;
+}
+
+
+/* Texto apareciendo poco a poco cada vez que entra un capítulo */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scene.active .content h2,
+.scene.active .content > p,
+.scene.active .content .quote,
+.scene.active .content .wide,
+.scene.active .hero-card h1,
+.scene.active .hero-card .sub,
+.scene.active .blackout-text {
+    animation: fadeUp 0.9s ease both;
+}
+
+.scene.active .eyebrow {
+    animation: fadeUp 0.7s ease both;
+}
+
+.scene.active .content h2 {
+    animation-delay: 0.05s;
+}
+
+.scene.active .content > p:nth-of-type(1),
+.scene.active .content .wide:nth-of-type(1) {
+    animation-delay: 0.15s;
+}
+
+.scene.active .content > p:nth-of-type(2),
+.scene.active .content .wide:nth-of-type(2) {
+    animation-delay: 0.28s;
+}
+
+.scene.active .content > p:nth-of-type(3),
+.scene.active .content .wide:nth-of-type(3) {
+    animation-delay: 0.4s;
+}
+
+.scene.active .blackout-text.small {
+    animation-delay: 0.35s;
+}
+
+.scene.active .primary {
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.5s;
+}
+
+
+/* Partículas flotando muy sutiles, encima de todo pero sin bloquear clics */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 5;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            rgba(255, 255, 255, 0.06) 1px,
+            transparent 1px
+        );
+
+    background-size: 130px 130px;
+
+    animation: drift 45s linear infinite;
+}
+
+@keyframes drift {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-130px);
+    }
+}
+
+
+/* Textura muy leve de grano de película */
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 6;
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.015) 3px
+        );
+
+    opacity: 0.35;
+}
+
+
+/* En pantallas chicas, el zoom se apaga: en fotos de foco fijo mobile
+   la animación puede recortar cosas importantes de la imagen */
+
+@media (max-width: 750px) {
+    .memory,
+    .album {
+        animation: none;
+    }
+}
+
+
+/* =========================================================
+   CELULARES
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .scene {
+        padding: 55px 20px 35px;
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .timeline {
+        width: 100%;
+
+        max-width: 520px;
+
+        margin: auto;
+    }
+
+    /* Fotos un poco más pequeñas en celular */
+
+    .small-img {
+        height: 105px;
+    }
+
+    .year-card {
+        grid-template-columns: 55px 1fr;
+
+        gap: 12px;
+    }
+
+    .timeline-line {
+        left: 27px;
+    }
+
+    .split-photo {
+        justify-content: center;
+
+        padding: 0 22px;
+    }
+
+    .split-photo .split-image {
+        right: 0;
+
+        bottom: 52%;
+
+        border-radius: 0;
+    }
+
+    .split-photo .content {
+        width: 100%;
+
+        margin: 48% 0 0;
+
+        padding-top: 20px;
+    }
+
+    .split-photo:after {
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        background:
+            linear-gradient(
+                #0005 0 42%,
+                #0b0b10 65%
+            );
+
+        pointer-events: none;
+    }
+
+    .split-photo .content {
+        z-index: 2;
+    }
+
+    .music-card {
+        grid-template-columns: 100px 1fr;
+
+        padding: 15px;
+    }
+
+    .album {
+        width: 100px;
+
+        height: 100px;
+    }
+
+    .memory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .memory {
+        height: 120px;
+    }
+
+    .worry-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-image {
+        height: 210px;
+    }
+
+    .content h2 {
+        font-size: 2.25rem;
+    }
+
+    .big-line {
+        font-size: 3.2rem;
+    }
+
+    .content p {
+        line-height: 1.6;
+    }
+
+    .spam-messages {
+        min-height: 220px;
+    }
+/* =========================================================
+   ANIMACIÓN PSPSPS
+   ========================================================= */
+
+.spam-message {
+    animation: pspspsIn 0.5s ease forwards;
+}
+
+@keyframes pspspsIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b12">
+  <title>Para vos 🎂</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="progress"><span></span></div>
+<audio id="bgMusic" loop preload="auto">
+    <source src="audio/ambient.mp3" type="audio/mpeg">
+</audio>
+<button onclick="document.getElementById('bgMusic').play()">
+    🔊 Probar música
+</button>
+
+  <main id="app">
+
+    <!-- 01: SPAM -->
+    <section class="scene active dark" data-scene="0" data-mood="intro">
+      <div class="spam-box">
+        <div id="spamMessages" class="spam-messages"></div>
+        <button id="spamBtn" class="primary hidden">¿QUÉ?</button>
+      </div>
+    </section>
+
+    <!-- 02: 18 -->
+    <section class="scene dark" data-scene="1" data-mood="intro">
+      <div class="hero-card">
+        <!-- IMAGEN: images/hero.jpg -->
+        <div class="image-frame hero-image placeholder-image" data-image="hero.jpeg">
+          <span>Tu foto aquí</span>
+        </div>
+        <p class="eyebrow">CAPÍTULO 01</p>
+        <h1>¿Qué se siente cumplir <span>18</span>, señora?</h1>
+        <p class="sub">En cuerpo de joven, porque de señora ya tenés bastante.</p>
+        <button class="primary next">Tengo algo que decirte →</button>
+      </div>
+    </section>
+
+    <!-- 03: 14 -> 18 -->
+    <section class="scene warm" data-scene="2" data-mood="memories">
+      <div class="content two-col">
+        <div>
+          <p class="eyebrow">CAPÍTULO 02 · 14 → 18</p>
+          <h2>Te conozco desde que tenías <span>14.</span></h2>
+          <p>Y de alguna manera he tenido la oportunidad de verte crecer de una forma que siento que fue exponencial.</p>
+          <p>He visto cómo has cambiado, cómo has aprendido, cómo has madurado y cómo has tenido que enfrentarte a cosas que probablemente nunca pensaste que ibas a vivir.</p>
+          <p>Y ha sido demasiado bonito verlo.</p>
+          <button class="primary next">Seguir →</button>
+        </div>
+        <div class="timeline">
+          <!-- IMÁGENES: images/age14.jpg ... age18.jpg -->
+          <div class="timeline-line"></div>
+          <div class="year-card"><b>14</b><div class="small-img" data-image="age14.jpeg"></div></div>
+          <div class="year-card"><b>15</b><div class="small-img" data-image="age15.jpeg"></div></div>
+          <div class="year-card"><b>16</b><div class="small-img" data-image="age16.jpeg"></div></div>
+          <div class="year-card"><b>17</b><div class="small-img" data-image="age17.jpeg"></div></div>
+          <div class="year-card"><b>18</b><div class="small-img" data-image="age18.jpeg"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04: HOY -->
+    <section class="scene blue" data-scene="3" data-mood="emotional">
+      <div class="content centered">
+        <p class="eyebrow">CAPÍTULO 03</p>
+        <h2>Pero antes de pensar en todo lo que viene...</h2>
+        <div class="big-line">mirá dónde estás <span>HOY.</span></div>
+        <p class="wide">Sé que estás llena de miedos, estrés, ansiedad y muchísimas cosas que pensar. Pero antes de hacer todo eso, mirá todo lo lindo que ha pasado. Aferrate a eso. Quedate con lo bueno que te ha dejado lo malo y con lo mucho que te ha hecho madurar.</p>
+        <div class="quote">“Porque incluso de las situaciones espantosas te quedó algo.”</div>
+        <button class="primary next">Continuar →</button>
+      </div>
+    </section>
+
+    <!-- 05: CONEXIÓN -->
+    <section class="scene photo-scene" data-scene="4" data-mood="memories">
+      <div class="photo-bg" data-image="together-01.jpeg"></div>
+      <div class="overlay"></div>
+      <div class="content light centered">
+        <p class="eyebrow">CAPÍTULO 04</p>
+        <h2>Siempre que te veo siento que te conozco de toda la vida.</h2>
+        <p class="wide">Siento que conecto tanto con vos, con esa señora que sos, así como el señor que soy yo. Podemos bromear sobre lo que sea, cuando sea y como sea.</p>
+        <p class="wide">Uno empieza un chiste y el otro lo rellena. Nos ponemos de acuerdo sin querer. Y honestamente, es demasiado chistoso.</p>
+        <button class="primary next">Hay más →</button>
+      </div>
+    </section>
+
+    <!-- 06: ME ENTIENDES -->
+    <section class="scene split-photo" data-scene="5" data-mood="memories">
+      <div class="split-image" data-image="together-02.jpeg"></div>
+      <div class="content">
+        <p class="eyebrow">CAPÍTULO 05</p>
+        <h2>Porque vos no solamente me escuchás.</h2>
+        <h2 class="accent">Me entendés.</h2>
+        <p>Me escuchás cuando hablo, pero también sos comprensiva. Me apreciás. Entendés mis formas, mis defectos, las cosas que me gustan y las que me molestan.</p>
+        <p>Me conocés probablemente mejor que nadie. Y saber que esa persona sos vos me hace demasiado feliz.</p>
+        <p class="tiny-joke">Podría pasarme horas hablando de todo lo que me hacés sentir, pero tampoco es el chiste. No quiero hacerte llorar tan temprano JAJAJA.</p>
+        <button class="primary next">Seguimos →</button>
+      </div>
+    </section>
+
+    <!-- 07: FUTURO -->
+    <section class="scene split-photo" data-scene="6" data-mood="emotional">
+      <div class="split-image" data-image="together-03.jpeg"></div>
+      <div class="content centered">
+        <p class="eyebrow">CAPÍTULO 06 · LO QUE VIENE</p>
+        <h2>Sé que de ahora en adelante el camino probablemente va a ser complicado.</h2>
+        <div class="worry-grid">
+          <span>Casa</span><span>Familia</span><span>Trabajo</span><span>Estudios</span><span>Miedos</span><span>Decisiones</span>
+        </div>
+        <p class="wide">Van a venir días en los que vas a sentir que todo se te viene encima. Pero cuando eso pase, seguí adelante. No te quedés viviendo en el miedo. No dejés que un momento malo te convenza de que toda tu vida está mal.</p>
+        <div class="quote">“Levantate las veces que tengás que levantarte.”</div>
+        <p class="wide">Va a sonar estúpido, pero... <b>todo es mental JAJAJA.</b> Aunque sé que decirlo cuando lo mental está hecho mierda es probablemente de las cosas más difíciles que existen.</p>
+        <button class="primary next">Hay algo más →</button>
+      </div>
+    </section>
+
+    <!-- 08: APOYO -->
+    <section class="scene soft" data-scene="7" data-mood="emotional">
+      <div class="content centered">
+        <p class="eyebrow">CAPÍTULO 07</p>
+        <h2>No cargués con todo sola.</h2>
+        <p class="wide">Orá mucho. Hablá con Dios. Hablá conmigo. Hablá con la gente que genuinamente quiera lo mejor para vos, que no te juzgue, que te aprecie, que te ame y que no espere nada a cambio.</p>
+        <div class="support-card">
+          <div>“Si puedo ser aunque sea un poco esa persona para vos, me hace feliz.”</div>
+        </div>
+        <button class="primary next">Ahora viene mi parte favorita →</button>
+      </div>
+    </section>
+
+    <!-- 09: PLAYLIST -->
+    <section class="scene music-scene" data-scene="8" data-mood="memories">
+      <div class="content centered">
+        <p class="eyebrow">CAPÍTULO 08 · PARA CUANDO...</p>
+        <h2>Vos y la música.</h2>
+        <div class="music-card">
+          <!-- IMAGEN: images/playlist-cover.jpg -->
+          <div class="album" data-image="playlist-cover.jpeg"></div>
+          <div class="music-info">
+            <span>PLAYLIST BY LUCA</span>
+            <h3>Para vos.</h3>
+            <p>Porque hay decenas de canciones que me recuerdan a vos.</p>
+            <!-- PEGA AQUÍ TU LINK -->
+            <a id="playlistLink" href="https://open.spotify.com/playlist/4Pw9E5XEYQ8vWfD4v8HmBi?si=cd93c2b454d74f3d" target="_blank" class="primary link-btn">🎧 Escuchar playlist</a>
+          </div>
+        </div>
+        <p class="wide">Cada vez que te sintás débil, que sintás que no sos suficiente, que no sos amada, que te sintás fea o que sintás que no tenés a nadie, poné alguna de estas canciones.</p>
+        <p class="wide">Y acordate: yo siempre voy a existir en alguna parte de esa música que me hace pensar en vos.</p>
+        <div class="funny">“Mae, ¿yo por qué me voy a sentir así si Luca piensa todo esto de mí? Y Luca es un crack.”<br><small>Se agrandaba el mae.</small></div>
+        <button class="primary next">JAJAJA, continuemos →</button>
+      </div>
+    </section>
+
+    <!-- 10: ADULTEZ -->
+    <section class="scene green" data-scene="9" data-mood="emotional">
+      <div class="content centered">
+        <p class="eyebrow">CAPÍTULO 09</p>
+        <h2>Todavía te falta muchísimo por vivir.</h2>
+        <p class="wide">Vas a conocer cosas que todavía ni siquiera podés imaginar. Vas a equivocarte, aprender, tomar decisiones buenas y probablemente algunas bastante cuestionables JAJAJA.</p>
+        <p class="wide">Espero poder estar cerca para escuchar tus historias, ayudarte cuando estés mal, reírme cuando hagás alguna estupidez y alentarte a seguir adelante.</p>
+        <div class="quote">“Y también quiero enseñarte que incluso si algún día yo no estoy, vos podés con todo.”</div>
+        <button class="primary next">Una última cosa... →</button>
+      </div>
+    </section>
+
+    <!-- 11: RECUERDOS -->
+    <section class="scene memories" data-scene="10" data-mood="memories">
+      <div class="content centered">
+        <p class="eyebrow">CAPÍTULO 10 · TU ESENCIA</p>
+        <h2>Dejás pedacitos tuyos en todos lados.</h2>
+        <p class="wide">Dinosaurios. Desayunos casi brunch. La Ciencia. Sopa de brócoli de Subway. Baile popular. Smirnoff verde. Straight up hand sanitizer. Zoé. León Larregui. BMW. Y prácticamente todos los putos restaurantes del país porque ya me sé tu orden.</p>
+        <div class="memory-grid">
+          <div class="memory" data-image="memory-01.jpeg"><span></span></div>
+          <div class="memory" data-image="memory-02.jpeg"><span></span></div>
+          <div class="memory" data-image="memory-03.jpeg"><span></span></div>
+          <div class="memory" data-image="memory-04.jpeg"><span></span></div>
+          <div class="memory" data-image="memory-05.jpeg"><span></span></div>
+          <div class="memory" data-image="memory-06.jpeg"><span></span></div>
+        </div>
+        <p class="wide">Tenés una esencia única. Y estoy seguro de que si algún día olvidaras quién sos, yo podría recordarte todo con detalles que ni siquiera podrías recordar sin perder la memoria.</p>
+        <button class="primary next">Último capítulo →</button>
+      </div>
+    </section>
+
+    <!-- 12: PARTNERS -->
+    <section class="scene photo-scene" data-scene="11" data-mood="memories">
+      <div class="photo-bg" data-image="together-04.jpeg"></div>
+      <div class="overlay"></div>
+      <div class="content light centered">
+        <p class="eyebrow">CAPÍTULO 11</p>
+        <h2>Partners in crime.</h2>
+        <p class="wide">Miles de recuerdos. Noches en las que no nos callábamos. Días en los que no dejábamos de hablar, vernos, reírnos y simplemente ser nosotros dos.</p>
+        <p class="wide">Creo que eso siempre va a existir de alguna forma.</p>
+        <div class="quote">“La energía no se crea ni se destruye, solo se transforma. (Ley de Conservacion de la Energía)”</div>
+        <button class="primary next">Y ahora sí... →</button>
+      </div>
+    </section>
+
+    <!-- 13: FINAL -->
+    <section class="scene final-scene" data-scene="12" data-mood="ending">
+      <div class="content centered">
+        <p class="eyebrow">ÚLTIMO CAPÍTULO</p>
+        <h2>Hay algo que prefiero decirte yo.</h2>
+        <p class="wide">Después de todo esto, creo que ya sabés qué quiero decirte.</p>
+        <button id="videoBtn" class="video-button">▶ VER VIDEO</button>
+        <p class="video-note">Tu video aparecerá aquí.</p>
+      </div>
+    </section>
+
+    <!-- 13b: TRANSICIÓN NEGRA 1 -->
+    <section class="scene blackout-scene" data-mood="ending">
+      <div class="content centered blackout">
+        <p class="blackout-text">Y hay una última cosa...</p>
+        <p class="blackout-text small">que no podía dejar por escrito.</p>
+        <button class="primary next">Continuar →</button>
+      </div>
+    </section>
+
+    <!-- 13c: TRANSICIÓN NEGRA 2 -->
+    <section class="scene blackout-scene" data-mood="ending">
+      <div class="content centered blackout">
+        <p class="blackout-text">Porque algunas cosas</p>
+        <p class="blackout-text small">merecen ser dichas mirándote a los ojos.</p>
+        <button id="enterVideoBtn" class="primary">▶ Ver video</button>
+      </div>
+    </section>
+
+    <!-- 14: VIDEO -->
+    <section class="scene video-scene" data-scene="13">
+      <div class="video-wrap">
+        <!-- VIDEO: video/video-final.mp4 -->
+        <video id="finalVideo" controls playsinline preload="metadata">
+          <source src="video/video-final.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+        <button id="finishBtn" class="primary">Terminé de verlo ❤️</button>
+      </div>
+    </section>
+
+    <!-- 15: END -->
+    <section class="scene end-scene" data-scene="14" data-mood="ending">
+      <div class="content centered">
+        <div class="end-symbol">✦</div>
+        <h2>Feliz cumpleaños, señora.</h2>
+        <p class="wide">Gracias por todos estos años.</p>
+        <p class="signature">— Luca</p>
+        <p class="psps">pspsps</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
